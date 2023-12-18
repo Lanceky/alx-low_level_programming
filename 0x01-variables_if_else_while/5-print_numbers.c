@@ -7,18 +7,15 @@
  */
 int main(void)
 {
-	char letter = 'a';
+    int digit = 0;
 
-	while (letter <= 'z')
-	{
-		if (letter != 'e' && letter != 'q')
-		{
-			putchar(letter);
-		}
-		letter++;
-	}
+    while (digit <= 9)
+    {
+        putchar(digit + '0');
+        digit++;
+    }
 
-	putchar('\n');
+    putchar('\n');
 
-	return (0);
+    return (0);
 }
