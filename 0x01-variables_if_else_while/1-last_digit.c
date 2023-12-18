@@ -9,24 +9,28 @@
  */
 int main(void)
 {
-    int n;
+	int n;
 
-    /* Initialize seed for random number generation */
-    srand(time(0));
+	/* Initialize seed for random number generation */
+	srand(time(0));
 
-    /* Generate a random number and assign it to n */
-    n = rand() - RAND_MAX / 2;
+	/* Generate a random number and assign it to n */
+	n = rand() - RAND_MAX / 2;
 
-    /* Get the last digit of the number */
-    int lastDigit = n % 10;
+	/* Get the last digit of the number */
+	int lastDigit = n % 10;
 
-    /* Print the result */
-    printf("Last digit of %d is %d and is ", n, lastDigit);
+	/* Print the result */
+	printf("Last digit of %d is %d and is", n, lastDigit);
 
-    /* Check the conditions for the last digit */
-    if (lastDigit > 5)
-        printf("greater than 5\n");
-    else if (lastDigit == 0)
-        printf("0\n");
-   
+	/* Check the conditions for the last digit */
+	if (lastDigit > 5)
+		printf(" greater than 5\n");
+	else if (lastDigit == 0)
+		printf(" 0\n");
+	else
+		printf(" less than 6 and not 0\n");
+
+	return (0);
+}
 
