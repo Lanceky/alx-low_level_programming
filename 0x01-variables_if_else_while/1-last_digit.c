@@ -10,6 +10,7 @@
 int main(void)
 {
 	int n;
+	int lastDigit;
 
 	/* Initialize seed for random number generation */
 	srand(time(0));
@@ -18,7 +19,7 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 
 	/* Get the last digit of the number */
-	int lastDigit = n % 10;
+	lastDigit = n % 10;
 
 	/* Print the result */
 	printf("Last digit of %d is %d and is", n, lastDigit);
