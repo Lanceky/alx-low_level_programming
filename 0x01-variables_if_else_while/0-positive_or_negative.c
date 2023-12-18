@@ -17,10 +17,14 @@ int main(void)
     /* Generate a random number and assign it to n */
     n = rand() - RAND_MAX / 2;
 
-    /* Print the random number */
+    /*
+     * Print the random number
+     */
     printf("%d is ", n);
 
-    /* Check if the number is positive, negative, or zero */
+    /*
+     * Check if the number is positive, negative, or zero
+     */
     if (n > 0)
         printf("positive\n");
     else if (n == 0)
