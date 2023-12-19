@@ -11,15 +11,15 @@ int main(void)
 
     for (digit = 0; digit < 10; digit++)
     {
-        putchar(digit + '0');
+        write(1, &digit, 1);
         if (digit < 9)
         {
-            putchar(',');
-            putchar(' ');
+            write(1, ",", 1);
+            write(1, " ", 1);
         }
     }
 
-    putchar('\n');
+    write(1, "\n", 1);
 
     return (0);
 }
