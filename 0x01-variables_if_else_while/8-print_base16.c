@@ -15,7 +15,10 @@ int main(void)
 		_putchar(digit);
 
 	for (digit = 'a'; digit <= 'f'; digit++)
-		_putchar(digit);
+	{
+		if (digit == 'f')
+			_putchar(digit);
+	}
 
 	_putchar('\n');
 
