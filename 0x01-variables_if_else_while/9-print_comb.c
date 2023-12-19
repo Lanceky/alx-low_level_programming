@@ -11,14 +11,13 @@ int main(void)
 
     for (digit = 0; digit < 10; digit++)
     {
-        /* Write the digit character to standard output */
-        write(1, &(digit + '0'), 1);
+        /* Convert the digit to a character and write it to standard output */
+        write(1, &('0' + digit), 1);
 
         if (digit < 9)
         {
             /* Write the comma and space to separate digits */
-            write(1, ",", 1);
-            write(1, " ", 1);
+            write(1, ", ", 2);
         }
     }
 
@@ -27,3 +26,4 @@ int main(void)
 
     return (0);
 }
+
