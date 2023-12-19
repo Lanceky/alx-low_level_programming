@@ -24,28 +24,20 @@ int main(void)
 	{
 		for (num2 = num1 + 1; num2 < 100; ++num2)
 		{
-			/* Print the first two-digit number */
 			putchar((num1 / 10) + '0');
 			putchar((num1 % 10) + '0');
-
-			/* Print the separator */
 			putchar(' ');
-
-			/* Print the second two-digit number */
 			putchar((num2 / 10) + '0');
 			putchar((num2 % 10) + '0');
 
-			/* Check if it's the last combination to avoid printing the comma */
 			if (num1 < 98 || num2 < 99)
 			{
-				/* Print the comma and space */
 				putchar(',');
 				putchar(' ');
 			}
 		}
 	}
 
-	/* Print a newline at the end */
 	putchar('\n');
 
 	return 0;
