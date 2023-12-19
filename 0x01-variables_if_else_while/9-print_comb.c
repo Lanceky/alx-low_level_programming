@@ -11,11 +11,8 @@ int main(void)
 
     for (digit = 0; digit < 10; digit++)
     {
-        /* Convert the digit to a character */
-        char digit_char = digit + '0';
-
-        /* Write the character to standard output */
-        write(1, &digit_char, 1);
+        /* Write the digit character to standard output */
+        write(1, &((digit % 10) + '0'), 1);
 
         if (digit < 9)
         {
