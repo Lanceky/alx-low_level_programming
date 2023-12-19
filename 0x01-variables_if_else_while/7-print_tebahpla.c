@@ -9,13 +9,10 @@ int _putchar(char c);
  */
 int main(void)
 {
-	int digit = '0';
+	char letter = 'z';
 
-	while (digit <= '9')
-	{
-		_putchar(digit);
-		digit++;
-	}
+	while (letter >= 'a')
+		_putchar(letter--);
 
 	_putchar('\n');
 
