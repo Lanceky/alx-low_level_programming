@@ -1,7 +1,5 @@
 #include <unistd.h>
 
-int _putchar(char c);
-
 /**
  * main - Entry point of the program
  *
@@ -9,30 +7,10 @@ int _putchar(char c);
  */
 int main(void)
 {
-	char digit;
+	char *hex = "0123456789abcdef";
 
-	for (digit = '0'; digit <= '9'; digit++)
-		_putchar(digit);
-
-	for (digit = 'a'; digit <= 'f'; digit++)
-	{
-		if (digit == 'f')
-			_putchar(digit);
-	}
-
-	_putchar('\n');
+	write(1, hex, 16);
+	write(1, "\n", 1);
 
 	return (0);
 }
-
-/**
- * _putchar - Writes a character to the standard output (stdout)
- * @c: The character to be written
- *
- * Return: On success, 1. On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return write(1, &c, 1);
-}
-
