@@ -1,29 +1,34 @@
-#include <unistd.h>
+#include <stdio.h>
 
-/**
- * main - Entry point of the program
- *
- * Return: Always 0 (Success)
- */
 int main(void)
 {
-    int digit;
+    int i, j;
 
-    for (digit = 0; digit < 10; digit++)
+    for (i = 0; i < 10; ++i)
     {
-        /* Convert the digit to a character and write it to standard output */
-        write(1, &('0' + digit), 1);
-
-        if (digit < 9)
+        for (j = i + 1; j < 10; ++j)
         {
-            /* Write the comma and space to separate digits */
-            write(1, ", ", 2);
+            /* Check if the two digits are different */
+            if (i != j)
+            {
+                /* Print the smallest combination of two digits */
+                putchar(i + '0');
+                putchar(j + '0');
+
+                /* Check if it's the last combination to avoid printing the comma */
+                if (i < 8 || j < 9)
+                {
+                    /* Print the separator */
+                    putchar(',');
+                    putchar(' ');
+                }
+            }
         }
     }
 
-    /* Write a new line at the end */
-    write(1, "\n", 1);
+    /* Print a newline at the end */
+    putchar('\n');
 
-    return (0);
+    return 0;
 }
 
