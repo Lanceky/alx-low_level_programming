@@ -11,14 +11,21 @@ int main(void)
 
     for (digit = 0; digit < 10; digit++)
     {
-        write(1, &digit, 1);
+        /* Convert the digit to a character */
+        char digit_char = digit + '0';
+
+        /* Write the character to standard output */
+        write(1, &digit_char, 1);
+
         if (digit < 9)
         {
+            /* Write the comma and space to separate digits */
             write(1, ",", 1);
             write(1, " ", 1);
         }
     }
 
+    /* Write a new line at the end */
     write(1, "\n", 1);
 
     return (0);
