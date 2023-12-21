@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - FizzBuzz program
+ * main - Entry point
  *
  * Return: Always 0
  */
@@ -23,9 +23,8 @@ int main(void)
         if (i < 100)
             printf(" ");
     }
-
     printf("\n");
 
-    return 0;
+    return (0);
 }
 
