@@ -19,6 +19,11 @@ void times_table(void);
 int add(int a, int b);
 void print_to_98(int n);
 void print_times_table(int n);
+int   putchar();
+int main(void);
+int largest_number(int a, int b, int c);
+int convert_day(int month, int day);
+void print_remaining_days(int month, int day, int year);
 #endif /* MAIN_H */
 
 
