@@ -1,19 +1,22 @@
+/* 6-puts2.c */
 #include "main.h"
+#include <stdio.h>
 
 /**
- * puts2 - Prints every other character of a string, starting with the first.
- * @str: Pointer to the string to be printed.
+ * puts2 - Prints every other character of a string, starting with the first
+ * @str: Pointer to the input string
  */
 void puts2(char *str)
 {
-	int i = 0;
+	if (str == NULL)
+		return;
 
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		_putchar(str[i]);
-		i += 2;
+		printf("%c", *str);
+		str += 2; /* Move to every other character */
 	}
 
-	_putchar('\n');
+	printf("\n");
 }
 
