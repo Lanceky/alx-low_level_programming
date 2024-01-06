@@ -10,25 +10,25 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-    char *result = dest;
+	char *result = dest;
 
-    /* Move to the end of dest */
-    while (*dest)
-        dest++;
+	/* Move to the end of dest */
+	while (*dest)
+		dest++;
 
-    /* Copy up to n bytes from src to dest */
-    while (*src && n > 0)
-    {
-        *dest = *src;
-        dest++;
-        src++;
-        n--;
-    }
+	/* Copy up to n bytes from src to dest */
+	while (*src && n > 0)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		n--;
+	}
 
-    /* Add null terminator at the end */
-    *dest = '\0';
+	/* Add null terminator at the end */
+	*dest = '\0';
 
-    return result;
+	return (result);
 }
 
 
