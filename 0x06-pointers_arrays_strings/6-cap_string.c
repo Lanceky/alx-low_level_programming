@@ -2,30 +2,30 @@
 
 /**
  * cap_string - Capitalizes all words of a string.
- * @str: The input string.
+ * @str: Input string.
  *
- * Return: A pointer to the resulting string.
+ * Return: Pointer to the resulting string.
  */
 char *cap_string(char *str)
 {
-    int i;
+	char *ptr = str;
+	int capitalize = 1;
 
-    if (str[0] >= 'a' && str[0] <= 'z')
-        str[0] -= 32;
+	while (*ptr)
+	{
+		if ((*ptr >= 'a' && *ptr <= 'z') && capitalize)
+			*ptr = *ptr - 'a' + 'A';
 
-    for (i = 1; str[i] != '\0'; i++)
-    {
-        if ((str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n'
-             || str[i - 1] == ',' || str[i - 1] == ';' || str[i - 1] == '.'
-             || str[i - 1] == '!' || str[i - 1] == '?' || str[i - 1] == '"'
-             || str[i - 1] == '(' || str[i - 1] == ')' || str[i - 1] == '{'
-             || str[i - 1] == '}') && (str[i] >= 'a' && str[i] <= 'z'))
-        {
-            str[i] -= 32;
-        }
-    }
+		if (*ptr == ' ' || *ptr == '\t' || *ptr == '\n' || *ptr == ',' || *ptr == ';' ||
+		    *ptr == '.' || *ptr == '!' || *ptr == '?' || *ptr == '"' || *ptr == '(' ||
+		    *ptr == ')' || *ptr == '{' || *ptr == '}')
+			capitalize = 1;
+		else
+			capitalize = 0;
 
-    return (str);
+		ptr++;
+	}
+
+	return (str);
 }
-
 
