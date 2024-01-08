@@ -16,5 +16,7 @@ void print_diagsums(int *a, int size);
 void print_diagsums(int *a, int size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int _putchar(char c);
+void set_string(char **s, char *to);
+int _putchar(char c);
 #endif /* MAIN_H */
 
