@@ -15,13 +15,13 @@ int _putchar(char c);
  */
 void _puts_recursion(char *s)
 {
-    if (*s == '\0') // Base case: end of string
+    if (*s == '\0')
     {
-        _putchar('\n'); // Print newline character
+        _putchar('\n');
         return;
     }
 
-    _putchar(*s); // Print current character
-    _puts_recursion(s + 1); // Recursive call to print rest of the string
+    _putchar(*s);
+    _puts_recursion(s + 1);
 }
 
