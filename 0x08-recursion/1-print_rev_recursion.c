@@ -15,4 +15,4 @@ void _print_rev_recursion(char *s)
 	/* Print the current character */
 	_putchar(*s);
 }
-}
+
