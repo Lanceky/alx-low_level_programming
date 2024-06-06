@@ -1,5 +1,5 @@
-school: 
-    #compilation command
-    gcc -o school main.c file1.c file2.c
+all: school
 
+school: main.c school.c
+	gcc main.c school.c -o school
 
