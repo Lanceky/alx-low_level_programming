@@ -1,28 +1,39 @@
-#include <stdio.h>
-#include "search_algos.h"
+#include <stddef.h>  // For size_t
+#include <stdlib.h>  // For malloc, free
 
 /**
- * linear_search - searches for a value in an array of integers using linear search
- * @array: pointer to the first element of the array to search in
- * @size: number of elements in array
- * @value: value to search for
+ * linear_search - Searches for a value in an array of integers using Linear search algorithm.
+ * @array: Pointer to the first element of the array to search in.
+ * @size: Number of elements in the array.
+ * @value: The value to search for in the array.
+ * @log: Pointer to a string buffer where search log will be stored.
  *
- * Return: first index where value is located, or -1 if value is not present
+ * Return: The first index where value is located, or -1 if not found or array is NULL.
  */
-int linear_search(int *array, size_t size, int value)
+int linear_search(int *array, size_t size, int value, char **log)
 {
-    size_t i;
-
     if (array == NULL)
         return -1;
 
-    for (i = 0; i < size; i++)
+    *log = malloc(size * 30);  // Allocate memory for log (approx. 30 chars per element)
+    if (*log == NULL)
+        return -1;
+
+    **log = '\0';  // Initialize log as empty string
+
+    for (size_t i = 0; i < size; i++)
     {
-        printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+        if (i > 0)
+            strcat(*log, " ");  // Add space separator between entries
+        
+        char temp[30];
+        sprintf(temp, "Value checked array[%lu] = [%d]", i, array[i]);
+        strcat(*log, temp);  // Append current comparison to log
+
         if (array[i] == value)
-            return i;
+            return i;  // Return index if value found
     }
 
-    return -1; // Value not found
+    return -1;  // Value not found
 }
 
