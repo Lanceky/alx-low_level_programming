@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * main - Prints the name of the program.
@@ -9,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-    (void)argc;  // Ignore unused parameter warning
+    (void)argc;  /* Ignore unused parameter warning */
     printf("%s\n", argv[0]);
     return (0);
 }
