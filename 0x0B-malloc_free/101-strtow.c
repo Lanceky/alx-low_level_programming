@@ -20,57 +20,31 @@ return (len);
 }
 
 /**
-* skip_spaces - skips spaces in a string.
-* @str: the string to process
+* count_words - counts the number of words in a string.
+* @str: the string to check
 *
-* Return: pointer to the first non-space character
+* Return: number of words
 */
-char *skip_spaces(char *str)
+int count_words(char *str)
+{
+int words = 0;
+
+while (*str)
 {
 while (*str == ' ')
 {
 str++;
 }
 
-return (str);
-}
-
-/**
-* allocate_words - allocates memory for the words in the string.
-* @str: the string to split
-* @word_count: number of words
-*
-* Return: pointer to the array of strings, or NULL on failure
-*/
-char **allocate_words(char *str, int word_count)
+if (*str)
 {
-char **words;
-int i, len;
-
-words = (char **)malloc((word_count + 1) * sizeof(char *));
-if (words == NULL)
+words++;
+while (*str && *str != ' ')
 {
-return (NULL);
+str++;
 }
-
-for (i = 0; i < word_count; i++)
-{
-str = skip_spaces(str);
-len = word_len(str);
-words[i] = (char *)malloc((len + 1) * sizeof(char));
-if (words[i] == NULL)
-{
-for (int j = 0; j < i; j++)
-{
-free(words[j]);
 }
-free(words);
-return (NULL);
 }
-str += len;
-}
-
-words[word_count] = NULL;
 
 return (words);
 }
@@ -84,7 +58,7 @@ return (words);
 char **strtow(char *str)
 {
 char **words;
-int i, w, word_count;
+int i, w, len, word_count;
 
 if (str == NULL || *str == '\0')
 {
@@ -97,7 +71,7 @@ if (word_count == 0)
 return (NULL);
 }
 
-words = allocate_words(str, word_count);
+words = (char **)malloc((word_count + 1) * sizeof(char *));
 if (words == NULL)
 {
 return (NULL);
@@ -106,10 +80,25 @@ return (NULL);
 i = 0;
 while (*str)
 {
-str = skip_spaces(str);
+while (*str == ' ')
+{
+str++;
+}
+
 if (*str)
 {
-word_len(str);
+len = word_len(str);
+words[i] = (char *)malloc((len + 1) * sizeof(char));
+if (words[i] == NULL)
+{
+for (w = 0; w < i; w++)
+{
+free(words[w]);
+}
+free(words);
+return (NULL);
+}
+
 for (w = 0; w < len; w++)
 {
 words[i][w] = str[w];
@@ -119,6 +108,8 @@ i++;
 str += len;
 }
 }
+
+words[i] = NULL;
 
 return (words);
 }
