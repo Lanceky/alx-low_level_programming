@@ -1,79 +1,40 @@
 #include "main.h"
 #include <stdlib.h>
-#include <unistd.h>
 
 /**
- * _putchar - Writes a character to stdout
- * @c: The character to write
+ * _realloc - Reallocates a memory block.
+ * @ptr: Pointer to the previously allocated memory.
+ * @old_size: Size of the old memory block.
+ * @new_size: Size of the new memory block.
  *
- * Return: On success 1, on error -1.
+ * Return: Pointer to the newly allocated memory.
  */
-int _putchar(char c)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-return write(1, &c, 1);
-}
+    char *new_ptr, *old_ptr;
+    unsigned int i, size;
 
-/**
- * is_digit - Checks if a string is a number
- * @str: The string to check
- *
- * Return: 1 if the string is a number, 0 otherwise
- */
-int is_digit(char *str)
-{
-while (*str)
-{
-if (*str < '0' || *str > '9')
-return 0;
-str++;
-}
-return 1;
-}
+    if (new_size == old_size)
+        return ptr;
+    if (ptr == NULL)
+        return malloc(new_size);
+    if (new_size == 0)
+    {
+        free(ptr);
+        return NULL;
+    }
 
-/**
- * main - Multiplies two positive numbers
- * @argc: Number of arguments
- * @argv: Array of arguments
- *
- * Return: 0 on success, 98 on failure
- */
-int main(int argc, char *argv[])
-{
-char *num1, *num2;
-int i;
+    new_ptr = malloc(new_size);
+    if (new_ptr == NULL)
+        return NULL;
 
-if (argc != 3)
-{
-write(2, "Error\n", 6);
-exit(98);
-}
+    old_ptr = ptr;
+    size = old_size < new_size ? old_size : new_size;
+    for (i = 0; i < size; i++)
+        new_ptr[i] = old_ptr[i];
+    
+    free(ptr);
 
-num1 = argv[1];
-num2 = argv[2];
-
-if (!is_digit(num1) || !is_digit(num2))
-{
-write(2, "Error\n", 6);
-exit(98);
-}
-
-// Convert num1 and num2 to integers (assuming they fit in int)
-int n1 = atoi(num1);
-int n2 = atoi(num2);
-int result = n1 * n2;
-
-// Print the result
-i = 0;
-while (result)
-{
-_putchar((result % 10) + '0');
-result /= 10;
-i++;
-}
-if (i == 0)
-_putchar('0');
-_putchar('\n');
-
-return 0;
+    return new_ptr;
 }
 
