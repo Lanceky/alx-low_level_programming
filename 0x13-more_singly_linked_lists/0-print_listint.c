@@ -1,5 +1,5 @@
 #include "lists.h"
-#include <unistd.h> /* for write() */
+#include <stddef.h> /* For size_t */
 
 /**
  * print_listint - Prints all the elements of a listint_t list.
@@ -11,14 +11,14 @@ size_t print_listint(const listint_t *h)
 {
     size_t count = 0;
 
-    while (h)
+    while (h != NULL)
     {
-        _putchar(h->n + '0'); /* Assuming single digit integers for simplicity */
-        _putchar('\n');
+        _putchar('0' + h->n); /* Assuming _putchar is used for single digit printing */
+        _putchar('\n');       /* Print a newline after each number */
         h = h->next;
         count++;
     }
 
-    return count;
+    return (count);
 }
 
