@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stddef.h>  /* For NULL definition */
+
 /* Function prototypes for task 0 */
 unsigned int binary_to_uint(const char *b);
 
