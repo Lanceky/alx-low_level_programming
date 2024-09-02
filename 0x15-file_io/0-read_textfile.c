@@ -26,7 +26,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	free(buffer);
-	close(read);
+	close(rd);
 
-	return (write);
+	return (wrt);
 }
