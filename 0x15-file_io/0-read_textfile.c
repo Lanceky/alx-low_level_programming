@@ -5,51 +5,28 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	ssize_t bytes_read, bytes_written;
+	ssize_t o, r, w;
 	char *buffer;
 
 	if (filename == NULL)
-	{
 		return (0);
-	}
 
-	/* Open the file */
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		return (0);
-	}
-
-	/* Allocate buffer to store the text */
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
-	{
-		close(fd);
 		return (0);
-	}
 
-	/* Read from the file */
-	bytes_read = read(fd, buffer, letters);
-	if (bytes_read == -1)
-	{
-		free(buffer);
-		close(fd);
-		return (0);
-	}
+	o = open(filename, O_RDONLY);
+	r = read(o, buffer, letters);
+	w = write(STDOUT_FILENO, buffer, r);
 
-	/* Write to stdout */
-	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-	if (bytes_written == -1 || bytes_written != bytes_read)
+	if (o == -1 || r == -1 || w == -1 || w != r)
 	{
 		free(buffer);
-		close(fd);
 		return (0);
 	}
 
-	/* Cleanup */
 	free(buffer);
-	close(fd);
+	close(o);
 
-	return (bytes_written);
+	return (w);
 }
