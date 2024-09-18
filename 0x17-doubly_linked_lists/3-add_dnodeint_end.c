@@ -23,7 +23,7 @@ if (*head == NULL)
 {
 new_node->prev = NULL;
 *head = new_node;
-return new_node;
+return (new_node);
 }
 
 temp = *head;
