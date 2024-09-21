@@ -1,31 +1,20 @@
-/* dog.h */
-#ifndef DOG_H
-#define DOG_H
-
-#include <stddef.h>  // For NULL
+#include "dog.h"
+#include <stdio.h>
+#include <stddef.h>
 
 /**
- * struct dog - A dog's basic info
- * @name: The dog's name
- * @age: The dog's age
- * @owner: The dog's owner
+ * print_dog - Prints a struct dog
+ * @d: Pointer to the struct dog to print
  *
- * Description: This struct is used to store basic information about a dog.
+ * Description: This function prints the contents of a struct dog.
+ * If an element is NULL, it prints (nil) instead.
  */
-struct dog
+void print_dog(struct dog *d)
 {
-    char *name;
-    float age;
-    char *owner;
-};
-
-typedef struct dog dog_t;
-
-/* Function prototypes */
-void init_dog(struct dog *d, char *name, float age, char *owner);
-void print_dog(struct dog *d);
-dog_t *new_dog(char *name, float age, char *owner);
-void free_dog(dog_t *d);
-
-#endif /* DOG_H */
-
+    if (d != NULL)
+    {
+        printf("Name: %s\n", d->name ? d->name : "(nil)");
+        printf("Age: %f\n", d->age);
+        printf("Owner: %s\n", d->owner ? d->owner : "(nil)");
+    }
+}

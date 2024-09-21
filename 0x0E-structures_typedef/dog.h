@@ -1,14 +1,13 @@
-/* dog.h */
 #ifndef DOG_H
 #define DOG_H
 
 /**
- * struct dog - A dog's basic info
- * @name: The dog's name
- * @age: The dog's age
- * @owner: The dog's owner
+ * struct dog - A structure representing a dog
+ * @name: The name of the dog
+ * @age: The age of the dog
+ * @owner: The owner of the dog
  *
- * Description: This struct is used to store basic information about a dog.
+ * Description: This structure holds information about a dog.
  */
 struct dog
 {
@@ -18,4 +17,3 @@ struct dog
 };
 
 #endif /* DOG_H */
-
