@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
- * main - Multiplies two numbers and prints the result.
- * @argc: Number of command-line arguments.
- * @argv: Array of command-line arguments.
- * 
- * Return: 0 if successful, 1 if error.
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: 0 if successful, 1 if error
  */
 int main(int argc, char *argv[])
 {
@@ -27,4 +26,3 @@ printf("%d\n", result);
 
 return (0);
 }
-
