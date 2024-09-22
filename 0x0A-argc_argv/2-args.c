@@ -1,12 +1,11 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
- * main - Prints all command-line arguments.
- * @argc: Number of command-line arguments.
- * @argv: Array of command-line arguments.
- * 
- * Return: Always 0 (Success).
+ * main - prints all arguments it receives
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: Always 0 (Success)
  */
 int main(int argc, char *argv[])
 {
@@ -18,4 +17,3 @@ printf("%s\n", argv[i]);
 }
 return (0);
 }
-
